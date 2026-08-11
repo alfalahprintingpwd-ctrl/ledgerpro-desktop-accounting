@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Print Utilities & Windows Desktop Print Optimization */
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      box-sizing: border-box !important;
+    }
+
+    html, body {
+      background-color: #ffffff !important;
+      color: #0f172a !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      height: auto !important;
+      overflow: visible !important;
+      font-size: 12pt !important;
+    }
+
+    /* Hide non-printable app UI elements */
+    header,
+    nav,
+    aside,
+    button,
+    select,
+    input,
+    .print\:hidden,
+    .no-print,
+    .toast-banner {
+      display: none !important;
+    }
+
+    /* Reset fixed modal dark overlays so they don't obscure print rendering */
+    div.fixed {
+      position: static !important;
+      inset: auto !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    /* When Print Preview modal is active, hide duplicate background documents */
+    body.print-preview-open [data-printable="true"]:not(.print-preview-content *) {
+      display: none !important;
+    }
+
+    /* Target printable document container */
+    [data-printable="true"],
+    .printable-document {
+      display: block !important;
+      position: static !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: #ffffff !important;
+      color: #0f172a !important;
+      transform: none !important; /* Removes zoom transform scale during physical printing */
+      overflow: visible !important;
+    }
+
+    /* Tables & Multi-Page Pagination */
+    table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+    }
+
+    thead {
+      display: table-header-group !important;
+    }
+
+    tfoot {
+      display: table-footer-group !important;
+    }
+
+    tr, td, th, table, .avoid-page-break, .signature-block, .stamp-block {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    a {
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+  }
+}

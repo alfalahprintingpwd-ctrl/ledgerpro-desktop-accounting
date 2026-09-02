@@ -12,7 +12,6 @@
     "preview": "vite preview",
     "start": "electron .",
     "dist": "electron-builder --win",
-    "clean": "rm -rf dist release",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
@@ -34,7 +33,6 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
-    "autoprefixer": "^10.4.21",
     "electron": "^38.1.0",
     "electron-builder": "^26.0.12",
     "esbuild": "^0.25.0",
@@ -54,14 +52,15 @@
       "package.json"
     ],
     "win": {
-  "icon": "build/icon.ico",
-  "target": [
-    {
-      "target": "nsis",
-      "arch": ["x64"]
-    }
-  ]
-}
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
     },
     "nsis": {
       "oneClick": false,

@@ -1,0 +1,6 @@
+{
+  "name": "LedgerPro Desktop Accounting",
+  "description": "Professional Desktop Accounting, Invoicing & Business Management Software",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
